@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
 
@@ -39,9 +37,6 @@ return {
     end,
   },
 
-  -- You can disable default plugins as follows:
-  { "max397574/better-escape.nvim", enabled = false },
-
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
@@ -49,8 +44,60 @@ return {
       require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
       -- add more custom luasnip configuration such as filetype extend or custom snippets
       local luasnip = require "luasnip"
+      local snip = luasnip.snippet
+      local text = luasnip.text_node
+      local insert = luasnip.insert_node
       luasnip.filetype_extend("javascript", { "javascriptreact" })
+      luasnip.add_snippets("all", {
+        snip({
+          trig = "init-env",
+        }, {
+          text { "#!/usr/bin/env python3", "# -*- encoding: utf-8 -*-", "" },
+          insert(0),
+        }),
+        snip({
+          trig = "apache",
+        }, {
+          text {
+            "# Copyright (c) 2023 SoftBank Corp.",
+            "#",
+            '# Licensed under the Apache License, Version 2.0 (the "License");',
+            "# you may not use this file except in compliance with the License.",
+            "# You may obtain a copy of the License at",
+            "#",
+            "#     http://www.apache.org/licenses/LICENSE-2.0",
+            "#",
+            "# Unless required by applicable law or agreed to in writing, software",
+            '# distributed under the License is distributed on an "AS IS" BASIS,',
+            "# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.",
+            "# See the License for the specific language governing permissions and",
+            "# limitations under the License.",
+            "",
+          },
+          insert(0),
+        }),
+      })
     end,
+  },
+
+  {
+    "cameron-wags/rainbow_csv.nvim",
+    config = true,
+    ft = {
+      "csv",
+      "tsv",
+      "csv_semicolon",
+      "csv_whitespace",
+      "csv_pipe",
+      "rfc_csv",
+      "rfc_semicolon",
+    },
+    cmd = {
+      "RainbowDelim",
+      "RainbowDelimSimple",
+      "RainbowDelimQuoted",
+      "RainbowMultiDelim",
+    },
   },
 
   {
