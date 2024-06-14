@@ -17,6 +17,7 @@ return {
       -- Set a diagnostic
       null_ls.builtins.diagnostics.markdownlint,
       -- Set a formatter
+      null_ls.builtins.formatting.remark,
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.prettier,
       null_ls.builtins.formatting.isort,
