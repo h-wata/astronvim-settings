@@ -61,7 +61,23 @@ return {
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
-
+      },
+      v = {
+        ["<leader>ch"] = {
+          function()
+            local actions = require "CopilotChat.actions"
+            require("CopilotChat.integrations.telescope").pick(actions.help_actions())
+          end,
+          desc = "CopilotChat - Help actions",
+        },
+        -- Quick chat with Copilot
+        ["<leader>cq"] = {
+          function()
+            local actions = require "CopilotChat.actions"
+            require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+          end,
+          desc = "CopilotChat - Prompt actions",
+        },
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
       },

@@ -12,4 +12,5 @@ return {
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   -- import/override with your plugins folder
+  { import = "plugins.extra.copilot-chat" },
 }
