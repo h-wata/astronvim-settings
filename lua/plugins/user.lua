@@ -52,7 +52,7 @@ return {
         snip({
           trig = "init-env",
         }, {
-          text { "#!/usr/bin/env python3", "# -*- encoding: utf-8 -*-", "" },
+          text { "#!/usr/bin/env python3", "# -*- coding: utf-8 -*-", "" },
           insert(0),
         }),
         snip({
