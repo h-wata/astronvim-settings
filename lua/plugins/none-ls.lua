@@ -12,12 +12,13 @@ return {
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     config.sources = {
-      require "none-ls.diagnostics.flake8",
-      require "none-ls.formatting.autopep8",
+      require "none-ls.diagnostics.ruff",
+      require "none-ls.formatting.ruff",
       -- Set a diagnostic
       null_ls.builtins.diagnostics.markdownlint,
       -- Set a formatter
       null_ls.builtins.formatting.remark,
+      null_ls.builtins.formatting.yapf,
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.prettier,
       null_ls.builtins.formatting.isort,
