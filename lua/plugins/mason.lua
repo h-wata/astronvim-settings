@@ -30,6 +30,9 @@ return {
         "tidy",
         "xmllint",
         "remark-cli",
+        "cmake_format",
+        "clang_format",
+        "cmake_lint",
         -- add more arguments for adding more null-ls sources
       })
     end,
