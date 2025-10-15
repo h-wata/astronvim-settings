@@ -14,17 +14,6 @@ return {
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     config.sources = {
-      -- Python linting and formatting
-      require("none-ls.diagnostics.ruff").with {
-        extra_args = { "--config=" .. work_github .. "/pyproject.toml" },
-      },
-      null_ls.builtins.formatting.yapf.with {
-        extra_args = { "--style=" .. work_github .. "/pyproject.toml" },
-      },
-      null_ls.builtins.formatting.isort.with {
-        extra_args = { "--sp", work_github .. "/pyproject.toml", "--src", "." },
-      },
-
       -- C/C++ formatting
       null_ls.builtins.formatting.clang_format.with {
         extra_args = { "-style=file:" .. work_github .. "/ros2/.clang-format" },
